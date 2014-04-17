@@ -1,0 +1,149 @@
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  padding-bottom: 19px;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+.col-lg-6 {
+	width: 46%;
+    margin: 2%;
+	float: left;
+}
+
+.btn-calc {
+width: 46%;
+    margin: 2%;
+	float: left;
+}
+.grey {
+
+	border-radius: 6px;
+	background-color: #eee;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+	padding: 0;
+	background-color: white !important;
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 21px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+
+
+
+
+/*newton*/
+
+
+#newton-craddle
+  {
+    position:relative;
+    width:300px;
+    height:200px;
+    margin:0px auto;
+    margin-top:-50px; 
+  }
+
+#newton-craddle #front,#newton-craddle #back { position:absolute; top:0px; left:0px;}
+#newton-craddle #front { z-index:4;}
+#newton-craddle #back { z-index:2;}
+
+#newton-craddle .ball
+  {
+    position:absolute;
+    width:20px;
+    height:20px;
+    background:#C00;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    z-index:3;
+  }
+
+
+#newton-craddle .ball-holder
+  {
+    position:absolute;
+    top:130px;
+    left:100px;
+  }
+  
+
+.string-back
+  {
+    position:absolute;
+    width:1px;
+    height:61px;
+    background:#F00;
+    top:68px;
+    left:110px;
+  }

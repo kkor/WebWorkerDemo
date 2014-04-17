@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Narrow Jumbotron Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/jumbotron-narrow.css" rel="stylesheet">
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+<script src="js/demo.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <h3 class="text-muted">Project name</h3>
+      </div>
+
+
+<div id="newton-craddle">
+        <img id="front" src="http://frederickjaime.info/REDO/Loader/loader/front-nc.png"/>
+        <div id="str-b1" class="string-back"></div>
+        <div id="str-b2" class="string-back"></div>
+        <div id="str-b3" class="string-back"></div>
+        <div id="str-b4" class="string-back"></div>
+        <div id="str-b5" class="string-back"></div>
+        <div id="ball-1" class="ball-holder"><div class="ball"></div></div>
+        <div id="ball-2" class="ball-holder"><div class="ball"></div></div>
+        <div id="ball-3" class="ball-holder"><div class="ball"></div></div>
+        <div id="ball-4" class="ball-holder"><div class="ball"></div></div>
+        <div id="ball-5" class="ball-holder"><div class="ball"></div></div>
+        <img id="back" src="http://frederickjaime.info/REDO/Loader/loader/back-nc.png"/>
+    </div>
+
+      <div class="jumbotron">
+        <h1>Prime number</h1>
+        <p class="lead">Calculate the highest prime up to: 
+      <input type="text" name="upto" id='upto'/></p>
+       
+      </div>
+
+      <div class="row">
+          <a class="btn btn-lg btn-success btn-calc" onclick="startWithout()" href="#" role="button">Calculate without worker</a>
+          
+        <a class="btn btn-lg btn-success btn-calc" onclick="startWith()" href="#" role="button">Calculate with worker</a>
+
+
+
+<div class="col-lg-6 grey">
+          <h4>Results without worker</h4>
+          <div id="resultWithout"></div>
+
+        </div>
+        
+        <div class="col-lg-6 grey">
+          <h4>Results with Web Worker</h4>
+          <div id="resultWith"></div>
+</div>
+      </div>
+
+    </div> 
+  </body>
+</html>
