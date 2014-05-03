@@ -31,10 +31,10 @@
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="demo.html">Basic demo</a></li>
-          <li><a href="demo2.html">Library comparison</a></li>
+          <li ><a href="demo.html">Basic demo</a></li>
+          <li class="active"><a href="demo2.html">Library comparison</a></li>
         </ul>
-        <h3 class="text-muted">Basic web worker demo</h3>
+        <h3 class="text-muted">Parallel.js vs Catiline.js</h3>
       </div> 
 
 
@@ -55,26 +55,28 @@
 
       <div class="jumbotron">
         <h1>Prime number</h1>
-        <p class="lead">Calculate the highest prime up to: 
+        <p>Demo for calculating primes up the values in this array: </br>
+          <div style="font-size:15px;">[33000, 33200, 33400, 33600, 33700, 33800, 33900, 40000, 33700, 33800, 33900, 40000]</div></p></br>
+        <p class="lead">Calculate with number of workers: 
       <input type="text" name="upto" id='upto'/></p>
        
       </div>
 
       <div class="row">
-          <a class="btn btn-lg btn-success btn-calc" onclick="startWithout()" href="#" role="button">Calculate without worker</a>
+          <a class="btn btn-lg btn-success btn-calc" onclick="startC1()" href="#" role="button">Calculate with Parallel.js</a>
           
-        <a class="btn btn-lg btn-success btn-calc" onclick="startWith()" href="#" role="button">Calculate with worker</a>
+        <a class="btn btn-lg btn-success btn-calc" onclick="startC16()" href="#" role="button">Calculate with Catiline.js</a>
 
 
 
 <div class="col-lg-6 grey">
-          <h4>Results without worker</h4>
+          <h4>Parallel.js</h4>
           <div id="resultWithout"></div>
 
         </div>
 
         <div class="col-lg-6 grey">
-          <h4>Results with Web Worker</h4>
+          <h4>Catiline.js</h4>
           <div id="resultWith"></div>
 </div>
       </div>

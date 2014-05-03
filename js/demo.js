@@ -130,7 +130,7 @@ function getPrime(number) {
     var numArray = "";
     var this_number, divisor, not_prime;
     var this_number = 3;
-    var lastNumber;
+    var lastNumber = 0;
     while (this_number < number) {
         var divisor = parseInt(this_number / 2);
         var not_prime = 0;
@@ -194,4 +194,153 @@ function primeHandler(event) {
 
 function is_numeric(input) {
     return typeof(input) == 'number';
+}
+
+
+//Demo 2
+
+var prime = function(number) {
+    var numArray = "";
+    var this_number, divisor, not_prime;
+    var this_number = 3;
+    var lastNumber = 0;
+    while (this_number < number) {
+        var divisor = parseInt(this_number / 2);
+        var not_prime = 0;
+        while (divisor > 1) {
+            if (this_number % divisor == 0) {
+                not_prime = 1;
+                divisor = 0;
+            } else {
+                divisor = divisor - 1;
+            }
+        }
+        if (not_prime == 0) {
+            numArray += (this_number + " ");
+            lastNumber = this_number;
+        }
+        this_number = this_number + 1;
+    }
+    return lastNumber;
+};
+
+var catilineWorker1 = cw(prime);
+
+var catilineWorker2 = cw({
+    prime: prime
+}, 2);
+
+var catilineWorker4 = cw({
+    prime: prime
+}, 4);
+
+var catilineWorker8 = cw({
+    prime: prime
+}, 8);
+
+var catilineWorker16 = cw({
+    prime: prime
+}, 16);
+
+// 33700, 33800, 33900, 40000,
+var numbers = [33000, 33200, 33400, 33600, 33700, 33800, 33900, 40000, 33700, 33800, 33900, 40000];
+
+function startC1() {
+    $('#resultWithout').append("Start with number of workers: " + $('#upto').val() + "<br/>");
+    var startTime = new Date().getTime();
+    console.log("pressed", $('#upto').val());
+
+
+    var value = $('#upto').val();
+    (new Parallel(numbers, {
+        maxWorkers: value
+    })).map(prime).then(function(result) {
+        console.log("parallel", result);
+
+        var currentTime = new Date().getTime();
+        var time = currentTime - startTime;
+        $('#resultWithout').append("Time taken: " + time + "ms<br/><br/>");
+    });
+
+}
+
+function startC16() {
+    $('#resultWith').append("Start with number of workers: " + $('#upto').val() + "<br/>");
+    var startTime = new Date().getTime();
+    console.log("pressed", $('#upto').val());
+    var result = getPrime($('#upto').val());
+    var resultA = [];
+
+    var value = $('#upto').val();
+    if (value == "1") {
+        for (var i = 0; i < numbers.length; i++) {
+            catilineWorker1.data(numbers[i]).then(function(result) {
+                resultA.push(result);
+
+                console.log("catiline", result);
+
+                if (resultA.length == numbers.length) {
+                    var currentTime = new Date().getTime();
+                    var time = currentTime - startTime;
+                    $('#resultWith').append("Time taken: " + time + "ms<br/><br/>");
+                }
+            });
+        };
+    } else if (value == "2") {
+        catilineWorker2.batch.prime(numbers).then(function(result) {
+            console.log("catiline16", result);
+
+            // $('#resultWith').append("Workers: " + value + "<br/>");
+            var currentTime = new Date().getTime();
+            var time = currentTime - startTime;
+            $('#resultWith').append("Time taken: " + time + "ms<br/><br/>");
+        });
+    } else if (value == "4") {
+        catilineWorker4.batch.prime(numbers).then(function(result) {
+            console.log("catiline16", result);
+
+            // $('#resultWith').append("Workers: " + value + "<br/>");
+            var currentTime = new Date().getTime();
+            var time = currentTime - startTime;
+            $('#resultWith').append("Time taken: " + time + "ms<br/><br/>");
+        });
+    } else if (value == "8") {
+        catilineWorker8.batch.prime(numbers).then(function(result) {
+            console.log("catiline16", result);
+
+            // $('#resultWith').append("Workers: " + value + "<br/>");
+            var currentTime = new Date().getTime();
+            var time = currentTime - startTime;
+            $('#resultWith').append("Time taken: " + time + "ms<br/><br/>");
+        });
+    } else if (value == "16") {
+        catilineWorker16.batch.prime(numbers).then(function(result) {
+            console.log("catiline16", result);
+
+            // $('#resultWith').append("Workers: " + value + "<br/>");
+            var currentTime = new Date().getTime();
+            var time = currentTime - startTime;
+            $('#resultWith').append("Time taken: " + time + "ms<br/><br/>");
+        });
+    }
+
+
+
+
+}
+
+function startC2() {
+    $('#resultWith').append("Start calculating up to: " + $('#upto').val() + "<br/>");
+    var startTime = new Date().getTime();
+    console.log("pressed", $('#upto').val());
+    var result = getPrime($('#upto').val());
+
+    catilineWorker16.batch.prime(numbers).then(function(result) {
+        console.log("catiline16", result);
+
+        $('#resultWith').append("Highest prime: " + result + "<br/>");
+        var currentTime = new Date().getTime();
+        var time = currentTime - startTime;
+        $('#resultWith').append("Time taken: " + time + "ms<br/><br/>");
+    });
 }
